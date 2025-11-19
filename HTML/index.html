@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infinite Oasis</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="IMG/logo_Infinite_Oasis.png" />
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f7f7f7;
+            color: #003345;
         }
 
         /* HERO SECTION */
@@ -19,7 +24,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-align: center;
         }
 
@@ -40,23 +44,32 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            color: white;
+        }
+
+        .hero-content img.logo {
+            width: 120px;
+            margin-bottom: 20px;
         }
 
         .hero-content h1 {
             font-size: 3rem;
+            color: #ffd700; /* golden title */
             margin: 0;
         }
 
         .hero-content p {
             font-size: 1.5rem;
+            color: #6ca7be;
             margin: 10px 0;
         }
 
         .typing-text {
             font-size: 1.5rem;
+            color: #ffffff;
             white-space: nowrap;
             overflow: hidden;
-            border-right: 3px solid white;
+            border-right: 3px solid #ffd700;
             width: 0;
             animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite alternate;
             margin-top: 20px;
@@ -76,12 +89,12 @@
             justify-content: center;
             gap: 20px;
             padding: 10px 0;
-            background: #e6e6e6;
+            background: #6ca7be;
         }
 
         nav a {
             text-decoration: none;
-            color: #003366;
+            color: white;
             font-weight: bold;
         }
 
@@ -101,6 +114,16 @@
             border-radius: 10px;
             flex: 1;
             min-width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #ffd700; /* golden accent */
+        }
+
+        .column h2 {
+            color: #003345;
+        }
+
+        .column p {
+            color: #6ca7be;
         }
 
         .column img {
@@ -109,13 +132,17 @@
         }
 
         .column button {
-            background: #003366;
+            background: #003345;
             color: white;
             padding: 12px 20px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             margin-top: 15px;
+        }
+
+        .column button:hover {
+            background: #6ca7be;
         }
 
         @media (max-width: 900px) {
@@ -129,10 +156,11 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <video autoplay muted loop class="hero-video">
-            <source src="VIDEO/waterdrop.mp4" type="video/mp4">
+            <source src="your-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
+            <img src="IMG/logo.png" alt="Infinite Oasis Logo" class="logo" />
             <h1>Infinite Oasis</h1>
             <p>Purest Water Made from Air</p>
             <div class="typing-text">Revolutionizing hydration, one drop at a time...</div>
