@@ -10,12 +10,67 @@
             font-family: Arial, sans-serif;
             background: #f7f7f7;
         }
-        header {
-            background: #003366;
-            padding: 20px;
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             text-align: center;
         }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .typing-text {
+            font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite alternate;
+            margin-top: 20px;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
         nav {
             display: flex;
             justify-content: center;
@@ -23,23 +78,37 @@
             padding: 10px 0;
             background: #e6e6e6;
         }
+
         nav a {
             text-decoration: none;
             color: #003366;
             font-weight: bold;
         }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
+
+        /* THREE-COLUMN SECTION */
+        .three-columns {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            gap: 20px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .column {
             background: white;
             padding: 20px;
             border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
         }
-        .hero-img {
+
+        .column img {
             width: 100%;
             border-radius: 10px;
         }
-        button {
+
+        .column button {
             background: #003366;
             color: white;
             padding: 12px 20px;
@@ -48,30 +117,61 @@
             cursor: pointer;
             margin-top: 15px;
         }
-        @media (max-width: 600px) {
-            nav { flex-direction: column; }
+
+        @media (max-width: 900px) {
+            .three-columns { flex-direction: column; }
         }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Infinite Oasis</h1>
-        <p>Purest Water Made from Air</p>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Infinite Oasis</h1>
+            <p>Purest Water Made from Air</p>
+            <div class="typing-text">Revolutionizing hydration, one drop at a time...</div>
+        </div>
     </header>
 
+    <!-- NAVIGATION -->
     <nav>
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="container">
-        <h2>Welcome!</h2>
-        <img class="hero-img" src="https://placehold.co/900x400" alt="Sample" />
-        <p>
-            This is a simple introduction section. Here you can add info about the client, 
-            services, or whatever content is needed.
-        </p>
-        <button onclick="downloadBrochure()">Download Brochure</button>
+    <!-- THREE-COLUMN SECTION -->
+    <div class="three-columns">
+        <!-- Left column -->
+        <div class="column">
+            <h2>About Us</h2>
+            <p>
+                Learn more about our mission to bring pure water from air, 
+                using cutting-edge technology and sustainability principles.
+            </p>
+        </div>
+
+        <!-- Center column (main image + CTA) -->
+        <div class="column">
+            <h2>Our Product</h2>
+            <img src="https://placehold.co/400x400" alt="Product Image" />
+            <p>Experience the freshest water, anytime, anywhere.</p>
+            <button onclick="downloadBrochure()">Download Brochure</button>
+        </div>
+
+        <!-- Right column -->
+        <div class="column">
+            <h2>Why Choose Us?</h2>
+            <p>
+                Our innovative solutions ensure environmentally-friendly hydration 
+                while maintaining top-notch quality and taste.
+            </p>
+        </div>
     </div>
 
     <script>
@@ -80,5 +180,6 @@
             window.location.href = "brochure.pdf";
         }
     </script>
+
 </body>
 </html>
