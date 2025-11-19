@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+        }
+        header {
+            background: #003366;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background: #e6e6e6;
+        }
+        nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label { display: block; margin: 10px 0 5px; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background: #003366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Get in touch</h2>
+        <form onsubmit="sendEmail(event)">
+            <label>Name</label>
+            <input type="text" required />
+
+            <label>Email</label>
+            <input type="email" required />
+
+            <label>Message</label>
+            <textarea rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+            alert("This will send an email once connected to backend or form service.");
+        }
+    </script>
+</body>
+</html>

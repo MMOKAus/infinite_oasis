@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Client Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+        }
+        header {
+            background: #003366;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background: #e6e6e6;
+        }
+        nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        button {
+            background: #003366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Business Name</h1>
+        <p>Your slogan or tagline here</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome!</h2>
+        <img class="hero-img" src="https://placehold.co/900x400" alt="Sample" />
+        <p>
+            This is a simple introduction section. Here you can add info about the client, 
+            services, or whatever content is needed.
+        </p>
+        <button onclick="downloadBrochure()">Download Brochure</button>
+    </div>
+
+    <script>
+        function downloadBrochure() {
+            alert("This will trigger a real PDF download once uploaded to hosting.");
+            window.location.href = "brochure.pdf";
+        }
+    </script>
+</body>
+</html>
