@@ -36,23 +36,21 @@
             justify-content: center;
             text-align: center;
 
-            /* background image - change path */
             background-image: url('IMG/photo_water.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* optional dark overlay for better contrast */
         .hero::before{
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28));
+            background: rgba(0,0,0,0.28);
             z-index: 1;
         }
 
-        /* logo top-left */
+        /* Logo top-left */
         .logo {
             position: absolute;
             top: 20px;
@@ -61,13 +59,13 @@
             z-index: 5;
         }
 
-        /* Title + subtitle - upper middle */
+        /* Main hero text, upper-middle */
         .hero-content {
             position: absolute;
-            top: 22%;               /* upper middle - tweak as needed */
+            top: 22%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 3;             /* above overlay */
+            z-index: 3;
             width: 90%;
             max-width: 900px;
             padding: 0 16px;
@@ -88,46 +86,39 @@
             font-weight: 300;
         }
 
-        /* Typing text — bottom center */
+        /* Typing text at bottom center */
         .typing-wrapper {
             position: absolute;
-            bottom: 36px;          /* distance from bottom */
+            bottom: 36px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 4;
             width: calc(100% - 40px);
             max-width: 1100px;
             padding: 0 16px;
-            pointer-events: none;
+            text-align: center;
         }
 
         .typing-text {
-            display: inline-block;
-            font-size: clamp(1.6rem, 4vw, 3rem); /* large, responsive */
+            font-size: clamp(1.6rem, 4vw, 3rem);
             color: #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            vertical-align: middle;
             font-weight: 600;
-            pointer-events: auto;
+            white-space: nowrap;
+            vertical-align: middle;
         }
 
-        /* caret (blinking) */
         .typing-caret {
             display: inline-block;
             width: 3px;
             height: 1.2em;
-            margin-left: 8px;
             background: #ffffff;
-            vertical-align: middle;
+            margin-left: 8px;
             animation: blink 0.8s steps(1) infinite;
         }
 
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        /* NAV + content sections (unchanged from yours) */
+        /* NAV */
         nav {
             display: flex;
             justify-content: center;
@@ -142,6 +133,7 @@
             font-weight: bold;
         }
 
+        /* Three columns */
         .three-columns {
             display: flex;
             max-width: 1200px;
@@ -186,7 +178,7 @@
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <header class="hero">
         <img src="IMG/logo_circle.png" alt="Infinite Oasis Logo" class="logo" />
 
@@ -195,19 +187,20 @@
             <p>Purest Water Made from Air</p>
         </div>
 
-        <!-- Typing text at bottom center -->
-        <div class="typing-wrapper" aria-hidden="false">
-            <span id="typing" class="typing-text"></span><span class="typing-caret" aria-hidden="true"></span>
+        <!-- Bottom typing text -->
+        <div class="typing-wrapper">
+            <span id="typing" class="typing-text"></span>
+            <span class="typing-caret"></span>
         </div>
     </header>
 
-    <!-- NAVIGATION -->
+    <!-- NAV -->
     <nav>
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- THREE-COLUMN SECTION -->
+    <!-- 3 COLUMNS -->
     <div class="three-columns">
         <div class="column">
             <h2>About Us</h2>
@@ -227,52 +220,40 @@
         </div>
     </div>
 
+    <!-- JS TYPING -->
     <script>
-        // Typing effect (JS) — will reliably type the entire string.
-        (function() {
-            const textEl = document.getElementById('typing');
-            const message = "Revolutionizing hydration, one drop at a time..."; // changeable
-            const speed = 40; // ms per character
+        const el = document.getElementById("typing");
+        const message = "Revolutionizing hydration, one drop at a time...";
+        let i = 0;
 
-            let i = 0;
-            function type() {
-                if (i <= message.length) {
-                    textEl.textContent = message.slice(0, i);
-                    i++;
-                    setTimeout(type, speed);
+        function type() {
+            if (i <= message.length) {
+                el.textContent = message.slice(0, i);
+                i++;
+                setTimeout(type, 45);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            let j = message.length;
+            function er() {
+                if (j >= 0) {
+                    el.textContent = message.slice(0, j);
+                    j--;
+                    setTimeout(er, 25);
                 } else {
-                    // optional pause and restart:
-                    setTimeout(() => {
-                        // erase
-                        erase();
-                    }, 2500);
+                    i = 0;
+                    setTimeout(type, 400);
                 }
             }
+            er();
+        }
 
-            function erase() {
-                let j = message.length;
-                function step() {
-                    if (j >= 0) {
-                        textEl.textContent = message.slice(0, j);
-                        j--;
-                        setTimeout(step, 25);
-                    } else {
-                        // restart typing after short delay
-                        i = 0;
-                        setTimeout(type, 400);
-                    }
-                }
-                step();
-            }
-
-            // start typing once DOM is ready
-            document.addEventListener('DOMContentLoaded', () => {
-                type();
-            });
-        })();
+        document.addEventListener("DOMContentLoaded", type);
 
         function downloadBrochure() {
-            alert("This will trigger a real PDF download once uploaded to hosting.");
             window.location.href = "Brochure_IO.pdf";
         }
     </script>
