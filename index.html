@@ -1,115 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Infinite Oasis</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="IMG/logo_circle.png" />
 
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            color: #003345;
+        :root{
+            --accent: #6ca7be;
+            --accent-dark: #00345b;
         }
 
-        /* Import Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        *{ box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #f7f7f7;
+            color: var(--accent-dark);
+        }
 
-/* HERO SECTION */
-.hero {
-    position: relative;
-    height: 80vh;
-    overflow: hidden;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 520px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
 
-    /* Background photo */
-    background-image: url('IMG/photo_water.jpg'); /* <--- CHANGE THIS */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+            /* background image - change path */
+            background-image: url('IMG/photo_water.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-    /* Optional dark overlay for readability */
-    filter: brightness(85%);
-}
+        /* optional dark overlay for better contrast */
+        .hero::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28));
+            z-index: 1;
+        }
 
-/* LOGO TOP LEFT */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 120px;
-    z-index: 3;
-}
-/* HERO CONTENT */
-.hero-content {
-    position: absolute;
-    top: 35%;              /* moves title + subtitle higher */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 2;
-    font-family: 'Montserrat', sans-serif;
-}
+        /* logo top-left */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            z-index: 5;
+        }
 
-.hero-content h1 {
-    font-size: 3rem;
-    color: #ffffff;        /* changed to white */
-    margin: 0;
-    font-weight: 700;
-}
+        /* Title + subtitle - upper middle */
+        .hero-content {
+            position: absolute;
+            top: 22%;               /* upper middle - tweak as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;             /* above overlay */
+            width: 90%;
+            max-width: 900px;
+            padding: 0 16px;
+        }
 
-.hero-content p {
-    font-size: 1.5rem;
-    color: #ffffff;        /* changed to white */
-    margin: 10px 0;
-    font-weight: 300;
-}
+        .hero-content h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1.05;
+        }
 
-/* TYPING TEXT — larger + bottom centered */
-.typing-text {
-    position: absolute;
-    bottom: 40px;          /* adjust for spacing above page edge */
-    left: 50%;
-    transform: translateX(-50%);
+        .hero-content p {
+            margin: 10px 0 0;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: #ffffff;
+            font-weight: 300;
+        }
 
-    font-size: 3rem;       /* doubled size */
-    color: #ffffff;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 4px solid #ffffff;
-    width: 0;
+        /* Typing text — bottom center */
+        .typing-wrapper {
+            position: absolute;
+            bottom: 36px;          /* distance from bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            width: calc(100% - 40px);
+            max-width: 1100px;
+            padding: 0 16px;
+            pointer-events: none;
+        }
 
-    animation: typing 3s steps(40, end) forwards,
-                blink 0.7s step-end infinite alternate;
+        .typing-text {
+            display: inline-block;
+            font-size: clamp(1.6rem, 4vw, 3rem); /* large, responsive */
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: middle;
+            font-weight: 600;
+            pointer-events: auto;
+        }
 
-    z-index: 3;
-}
+        /* caret (blinking) */
+        .typing-caret {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            margin-left: 8px;
+            background: #ffffff;
+            vertical-align: middle;
+            animation: blink 0.8s steps(1) infinite;
+        }
 
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
 
-@keyframes typing {
-    from { width: 0; }
-    to   { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-
+        /* NAV + content sections (unchanged from yours) */
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
             padding: 10px 0;
-            background: #6ca7be;
+            background: var(--accent);
         }
 
         nav a {
@@ -118,7 +142,6 @@
             font-weight: bold;
         }
 
-        /* THREE-COLUMN SECTION */
         .three-columns {
             display: flex;
             max-width: 1200px;
@@ -135,24 +158,15 @@
             flex: 1;
             min-width: 250px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-top: 5px solid #6ca7be;
+            border-top: 5px solid var(--accent);
         }
 
-        .column h2 {
-            color: #003345;
-        }
-
-        .column p {
-            color: #6ca7be;
-        }
-
-        .column img {
-            width: 100%;
-            border-radius: 10px;
-        }
+        .column h2 { color: var(--accent-dark); }
+        .column p { color: var(--accent); }
+        .column img { width: 100%; border-radius: 10px; }
 
         .column button {
-            background: #003345;
+            background: var(--accent-dark);
             color: white;
             padding: 12px 20px;
             border: none;
@@ -160,15 +174,13 @@
             cursor: pointer;
             margin-top: 15px;
         }
-
-        .column button:hover {
-            background: #6ca7be;
-        }
+        .column button:hover { background: var(--accent); }
 
         @media (max-width: 900px) {
-            .three-columns {
-                flex-direction: column;
-            }
+            .three-columns { flex-direction: column; }
+            .logo { width: 90px; top: 14px; left: 14px; }
+            .hero { height: 65vh; min-height: 420px; }
+            .typing-wrapper { bottom: 24px; }
         }
     </style>
 </head>
@@ -176,15 +188,16 @@
 
     <!-- HERO SECTION -->
     <header class="hero">
-
-        
-
         <img src="IMG/logo_circle.png" alt="Infinite Oasis Logo" class="logo" />
 
         <div class="hero-content">
             <h1>Infinite Oasis</h1>
             <p>Purest Water Made from Air</p>
-            <div class="typing-text">Revolutionizing hydration, one drop at a time...</div>
+        </div>
+
+        <!-- Typing text at bottom center -->
+        <div class="typing-wrapper" aria-hidden="false">
+            <span id="typing" class="typing-text"></span><span class="typing-caret" aria-hidden="true"></span>
         </div>
     </header>
 
@@ -196,13 +209,9 @@
 
     <!-- THREE-COLUMN SECTION -->
     <div class="three-columns">
-
         <div class="column">
             <h2>About Us</h2>
-            <p>
-                Learn more about our mission to bring pure water from air,
-                using cutting-edge technology and sustainability principles.
-            </p>
+            <p>Learn more about our mission to bring pure water from air, using cutting-edge technology and sustainability principles.</p>
         </div>
 
         <div class="column">
@@ -214,15 +223,54 @@
 
         <div class="column">
             <h2>Why Choose Us?</h2>
-            <p>
-                Our innovative solutions ensure environmentally-friendly hydration
-                while maintaining top-notch quality and taste.
-            </p>
+            <p>Our innovative solutions ensure environmentally-friendly hydration while maintaining top-notch quality and taste.</p>
         </div>
-
     </div>
 
     <script>
+        // Typing effect (JS) — will reliably type the entire string.
+        (function() {
+            const textEl = document.getElementById('typing');
+            const message = "Revolutionizing hydration, one drop at a time..."; // changeable
+            const speed = 40; // ms per character
+
+            let i = 0;
+            function type() {
+                if (i <= message.length) {
+                    textEl.textContent = message.slice(0, i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // optional pause and restart:
+                    setTimeout(() => {
+                        // erase
+                        erase();
+                    }, 2500);
+                }
+            }
+
+            function erase() {
+                let j = message.length;
+                function step() {
+                    if (j >= 0) {
+                        textEl.textContent = message.slice(0, j);
+                        j--;
+                        setTimeout(step, 25);
+                    } else {
+                        // restart typing after short delay
+                        i = 0;
+                        setTimeout(type, 400);
+                    }
+                }
+                step();
+            }
+
+            // start typing once DOM is ready
+            document.addEventListener('DOMContentLoaded', () => {
+                type();
+            });
+        })();
+
         function downloadBrochure() {
             alert("This will trigger a real PDF download once uploaded to hosting.");
             window.location.href = "Brochure_IO.pdf";
@@ -231,4 +279,3 @@
 
 </body>
 </html>
-
