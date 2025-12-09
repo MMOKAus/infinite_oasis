@@ -5,40 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wireless Energy</title>
     <style>
-        body {
+        html, body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
 
-        /* Full width SVG that does not lock scroll */
-        .fullpage-svg {
+        /* Hero SVG section */
+        .hero {
             width: 100%;
-            height: 100vh; /* fills the viewport height */
-            overflow: hidden;
+            height: 100vh; /* full viewport height */
+            position: relative;
         }
 
-        .fullpage-svg img {
+        .hero img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* fill hero without distortion */
             display: block;
         }
 
-        /* Example additional content below */
+        /* Optional overlay text */
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Content below hero */
         .content {
             padding: 40px 20px;
+            background: #f5f5f5;
+        }
+
+        .content h2 {
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
-    <div class="fullpage-svg">
+    <!-- Hero Section -->
+    <div class="hero">
         <img src="Wireless_Energy.svg" alt="Wireless Charging Image">
+        <!-- Optional overlay text -->
+        <!-- <div class="hero-text">Wireless Energy for the Future</div> -->
     </div>
 
+    <!-- Scrollable content below -->
     <div class="content">
-        <h2>More About Our Projects</h2>
-        <p>This is some example content below the SVG. Now the page is scrollable.</p>
-        <p>Add more sections here as needed.</p>
+        <h2>Our Projects</h2>
+        <p>This section is scrollable. You can add more content below the SVG hero section.</p>
+        <p>Add additional sections, text, images, or links as needed.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ultricies odio.</p>
+        <p>Keep scrolling to see more content.</p>
     </div>
 </body>
 </html>
