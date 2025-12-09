@@ -9,36 +9,37 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            height: 100%;
         }
 
-        /* Hero SVG section */
+        /* Hero section */
         .hero {
             width: 100%;
-            height: 100vh; /* full viewport height */
+            min-height: 100vh; /* ensures it fills the viewport */
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* fill hero without distortion */
+            object-fit: cover; /* fills container without stretching */
             display: block;
         }
 
-        /* Optional overlay text */
+        /* Optional text over hero */
         .hero-text {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             color: white;
-            text-align: center;
             font-size: 36px;
             font-weight: bold;
+            text-align: center;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
-        /* Content below hero */
+        /* Scrollable content below hero */
         .content {
             padding: 40px 20px;
             background: #f5f5f5;
@@ -50,6 +51,7 @@
     </style>
 </head>
 <body>
+
     <!-- Hero Section -->
     <div class="hero">
         <img src="Wireless_Energy.svg" alt="Wireless Charging Image">
@@ -61,9 +63,11 @@
     <div class="content">
         <h2>Our Projects</h2>
         <p>This section is scrollable. You can add more content below the SVG hero section.</p>
-        <p>Add additional sections, text, images, or links as needed.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et ultricies odio.</p>
+        <p>Add additional sections, text, images, or links as needed.</p>
         <p>Keep scrolling to see more content.</p>
     </div>
+
 </body>
 </html>
+
