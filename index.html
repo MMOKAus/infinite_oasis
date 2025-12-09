@@ -142,6 +142,13 @@
             padding: 0 20px;
             flex-wrap: wrap;
         }
+        /* Center About Us paragraph */
+        .about-column p {
+            text-align: center;
+            max-width: 600px; /* optional, improves readability */
+            margin: 0 auto;
+}
+
 
         .column {
             background: white;
@@ -204,14 +211,14 @@
 
     <!-- 3 COLUMNS -->
     <div class="three-columns">
-        <div class="column">
+        <div class="column about-column">
             <h2>About Us</h2>
             <p>At Infinite Oasis, we create pure, high-quality water sourced from the air, bringing sustainable hydration to your everyday life. Our innovative process ensures clean, fresh water with minimal impact on the planet. Experience the future of hydration — refreshing, eco-friendly, and effortlessly accessible.</p>
         </div>
 
         <div class="column">
             <h2>Our Product</h2>
-            <img src="https://placehold.co/400x400" alt="Product Image" />
+            <img src="IMG/woman_water.jpeg" alt="Woman drinking fresh water" />
             <p>The cleanest, healthiest water without any harmful toxins.</p>
             <button onclick="downloadBrochure()">Download Brochure</button>
         </div>
@@ -230,6 +237,7 @@
                 <img src="IMG/Luxury_MicroCity_USA.png" alt="Image of a luxury microcity" />
             </a>
     </div>
+</div>
 
     <!-- JS TYPING -->
     <script>
