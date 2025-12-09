@@ -5,31 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wireless Energy</title>
     <style>
-        html, body {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            background: #ffffff;
+            font-family: Arial, sans-serif;
         }
 
+        /* Full width SVG that does not lock scroll */
         .fullpage-svg {
             width: 100%;
-            height: 100%;
+            height: 100vh; /* fills the viewport height */
+            overflow: hidden;
         }
 
         .fullpage-svg img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ensures it fills the screen */
+            object-fit: cover;
             display: block;
+        }
+
+        /* Example additional content below */
+        .content {
+            padding: 40px 20px;
         }
     </style>
 </head>
-
 <body>
     <div class="fullpage-svg">
         <img src="Wireless_Energy.svg" alt="Wireless Charging Image">
+    </div>
+
+    <div class="content">
+        <h2>More About Our Projects</h2>
+        <p>This is some example content below the SVG. Now the page is scrollable.</p>
+        <p>Add more sections here as needed.</p>
     </div>
 </body>
 </html>
