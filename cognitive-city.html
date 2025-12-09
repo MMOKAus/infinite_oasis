@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cognitive City</title>
+
+    <style>
+        /* Remove default browser margins and allow scrolling */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+            background: #000; /* looks nice behind the city */
+        }
+
+        /* Wrapper to center and make layout responsive */
+        .page-wrapper {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .svg-wrapper {
+            width: 100%;
+            max-width: 1920px; /* matches your SVG's width */
+        }
+
+        .svg-wrapper img {
+            display: block;      /* removes inline-gap whitespace */
+            width: 100%;         /* responsive: scale to viewport width */
+            height: auto;        /* keep aspect ratio */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="svg-wrapper">
+            <!-- Make sure COGNITIVE_CITY.svg is in the same folder as this HTML file -->
+            <img src="COGNITIVE_CITY.svg" alt="Cognitive City" />
+        </div>
+    </div>
+</body>
+</html>
