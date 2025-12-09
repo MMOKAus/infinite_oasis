@@ -65,18 +65,26 @@
 
     <div class="container">
         <h2>Get in touch</h2>
-        <form onsubmit="sendEmail(event)">
+        <form action="https://formsubmit.co/cptbarry@infiniteoasis.com.au" method="POST">
+    
+            <!-- Disable CAPTCHA -->
+            <input type="hidden" name="_captcha" value="false">
+        
+            <!-- Redirect after submit (optional — replace with your real link) -->
+            <input type="hidden" name="_next" value="thank-you.html">
+        
             <label>Name</label>
-            <input type="text" required />
-
+            <input type="text" name="name" required />
+        
             <label>Email</label>
-            <input type="email" required />
-
+            <input type="email" name="email" required />
+        
             <label>Message</label>
-            <textarea rows="5" required></textarea>
-
+            <textarea rows="5" name="message" required></textarea>
+        
             <button type="submit">Send</button>
         </form>
+        
     </div>
 
     <script>
